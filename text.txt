@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CYBERPUNK GOD MODE – GitHub Reader</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<style>
+/* 🌌 BACKGROUND */
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Orbitron',sans-serif;
+    background:black;
+    overflow:hidden;
+    color:#00fff2;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:
+    linear-gradient(#0ff1,transparent 1px),
+    linear-gradient(90deg,#0ff1,transparent 1px);
+    background-size:60px 60px;
+    animation:gridMove 20s linear infinite;
+}
+
+@keyframes gridMove{
+    from{transform:translateY(0);}
+    to{transform:translateY(60px);}
+}
+
+/* 🧊 MAIN PANEL */
+.panel{
+    position:relative;
+    width:90%;
+    max-width:900px;
+    padding:30px;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+/* RGB BORDER */
+.panel::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    background:linear-gradient(90deg,#00fff2,#ff00ff,#00ff88,#00fff2);
+    background-size:300%;
+    z-index:-1;
+    animation:rgbBorder 6s linear infinite;
+}
+
+@keyframes rgbBorder{
+    0%{background-position:0%}
+    100%{background-position:300%}
+}
+
+/* 🏷 TITLE */
+h2{
+    text-align:center;
+    font-size:28px;
+    text-shadow:0 0 15px #00fff2;
+    animation:glitch 2s infinite;
+}
+
+@keyframes glitch{
+    0%,100%{text-shadow:0 0 15px #00fff2;}
+    50%{text-shadow:2px 2px 25px #ff00ff;}
+}
+
+/* 🔘 BUTTON */
+button{
+    display:block;
+    margin:20px auto;
+    padding:15px 40px;
+    font-family:'Orbitron';
+    font-size:16px;
+    color:#00fff2;
+    background:transparent;
+    border:2px solid #00fff2;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+    position:relative;
+}
+
+button:hover{
+    color:black;
+    background:#00fff2;
+    box-shadow:0 0 25px #00fff2;
+}
+
+/* 📟 TERMINAL OUTPUT */
+pre{
+    height:300px;
+    overflow:auto;
+    padding:20px;
+    background:black;
+    border-radius:10px;
+    font-family:'Share Tech Mono',monospace;
+    color:#00ff88;
+    box-shadow:inset 0 0 15px #00fff2;
+}
+
+/* CUSTOM SCROLLBAR */
+pre::-webkit-scrollbar{width:8px;}
+pre::-webkit-scrollbar-thumb{
+    background:#00fff2;
+    border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+
+    <h2>⚡ GITHUB DATA LINK ⚡</h2>
+
+    <button onclick="fetchGitHubFile()">INITIALIZE DOWNLOAD</button>
+
+    <pre id="file-content">> Awaiting command...</pre>
+
+</div>
+
+<script>
+async function fetchGitHubFile(){
+
+    const output = document.getElementById("file-content");
+    output.textContent="> Establishing secure connection...\n";
+
+    const owner = "Cerestian-doy";
+    const repo = "CC106";
+    const filePath = "sampletextfile.txt";
+    const branch = "main";
+
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}?ref=${branch}`;
+
+    try{
+        const response = await fetch(url);
+
+        if(!response.ok){
+            throw new Error(`ERROR ${response.status}`);
+        }
+
+        output.textContent += "> Access granted...\n> Decoding file...\n";
+
+        const data = await response.json();
+        const content = atob(data.content);
+
+        setTimeout(()=>{
+            output.textContent = content;
+        },800);
+
+    }catch(error){
+        output.textContent="❌ SYSTEM FAILURE\n"+error;
+    }
+}
+</script>
+
+</body>
+</html>
