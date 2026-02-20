@@ -1,173 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CYBERPUNK GOD MODE – GitHub Reader</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
-<style>
-/* 🌌 BACKGROUND */
-body{
-    margin:0;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-family:'Orbitron',sans-serif;
-    background:black;
-    overflow:hidden;
-    color:#00fff2;
-}
-
-body::before{
-    content:"";
-    position:absolute;
-    width:200%;
-    height:200%;
-    background:
-    linear-gradient(#0ff1,transparent 1px),
-    linear-gradient(90deg,#0ff1,transparent 1px);
-    background-size:60px 60px;
-    animation:gridMove 20s linear infinite;
-}
-
-@keyframes gridMove{
-    from{transform:translateY(0);}
-    to{transform:translateY(60px);}
-}
-
-/* 🧊 MAIN PANEL */
-.panel{
-    position:relative;
-    width:90%;
-    max-width:900px;
-    padding:30px;
-    background:rgba(0,0,0,0.6);
-    backdrop-filter:blur(15px);
-    border-radius:20px;
-    overflow:hidden;
-}
-
-/* RGB BORDER */
-.panel::before{
-    content:"";
-    position:absolute;
-    inset:-2px;
-    background:linear-gradient(90deg,#00fff2,#ff00ff,#00ff88,#00fff2);
-    background-size:300%;
-    z-index:-1;
-    animation:rgbBorder 6s linear infinite;
-}
-
-@keyframes rgbBorder{
-    0%{background-position:0%}
-    100%{background-position:300%}
-}
-
-/* 🏷 TITLE */
-h2{
-    text-align:center;
-    font-size:28px;
-    text-shadow:0 0 15px #00fff2;
-    animation:glitch 2s infinite;
-}
-
-@keyframes glitch{
-    0%,100%{text-shadow:0 0 15px #00fff2;}
-    50%{text-shadow:2px 2px 25px #ff00ff;}
-}
-
-/* 🔘 BUTTON */
-button{
-    display:block;
-    margin:20px auto;
-    padding:15px 40px;
-    font-family:'Orbitron';
-    font-size:16px;
-    color:#00fff2;
-    background:transparent;
-    border:2px solid #00fff2;
-    border-radius:10px;
-    cursor:pointer;
-    transition:.3s;
-    position:relative;
-}
-
-button:hover{
-    color:black;
-    background:#00fff2;
-    box-shadow:0 0 25px #00fff2;
-}
-
-/* 📟 TERMINAL OUTPUT */
-pre{
-    height:300px;
-    overflow:auto;
-    padding:20px;
-    background:black;
-    border-radius:10px;
-    font-family:'Share Tech Mono',monospace;
-    color:#00ff88;
-    box-shadow:inset 0 0 15px #00fff2;
-}
-
-/* CUSTOM SCROLLBAR */
-pre::-webkit-scrollbar{width:8px;}
-pre::-webkit-scrollbar-thumb{
-    background:#00fff2;
-    border-radius:10px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="panel">
-
-    <h2>⚡ GITHUB DATA LINK ⚡</h2>
-
-    <button onclick="fetchGitHubFile()">INITIALIZE DOWNLOAD</button>
-
-    <pre id="file-content">> Awaiting command...</pre>
-
-</div>
-
-<script>
-async function fetchGitHubFile(){
-
-    const output = document.getElementById("file-content");
-    output.textContent="> Establishing secure connection...\n";
-
-    const owner = "Cerestian-doy";
-    const repo = "CC106";
-    const filePath = "sampletextfile.txt";
-    const branch = "main";
-
-    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${filePath}?ref=${branch}`;
-
-    try{
-        const response = await fetch(url);
-
-        if(!response.ok){
-            throw new Error(`ERROR ${response.status}`);
-        }
-
-        output.textContent += "> Access granted...\n> Decoding file...\n";
-
-        const data = await response.json();
-        const content = atob(data.content);
-
-        setTimeout(()=>{
-            output.textContent = content;
-        },800);
-
-    }catch(error){
-        output.textContent="❌ SYSTEM FAILURE\n"+error;
-    }
-}
-</script>
-
-</body>
-</html>
+Kahit bata pa ako parang alam ko na lahat
+Mga lihim na pagtingin na 'di ko maipagtapat
+Nagiging masaya ako sa tuwing kasama na kita
+At nalulungkot naman kapag hindi ka nakikita
+Nag-aantay sa school na bumaba ka sa chikot
+At sa ating tagpuan sana ika'y sumipot
+Sabay natin kakainin mga dala nating baon
+At sa 'yong pag-uwi gumamela aking pabaon
+Simbolo ng pag-ibig kong 'di kayang bigkasin
+Dahil natatakot ako baka tayo'y paglayuin
+Pagsapit ng alas kwatro dadalaw sa inyong bahay
+Lalabas sa may kalsadang magkahawak ang kamay
+Maglalaro ng habulan patintero tumbang preso
+At kapag pagod ka na ibibili kita ng zesto
+At doon iinumin sa ating tagpuan
+Masayang nagkukulitan habang tayo'y nagduduyan
+Kislap ng 'yong mata'y 'di kayang limutin
+Sa 'ting tagpuan ay naghihintay pa rin
+Umukit ka sa puso ko at 'di na maalis
+Ang mga alaala nating dalawa na kay tamis
+Kay tagal kong tiniis
+'Di rin nagtagal nalaman ng iyong magulang
+Ang lihim na pagtingin na sila ang naging hadlang
+Ilang araw ilang linggo ka nilang 'di pinalabas
+At minsan na iisip ko baka ito na ang wakas
+Sa mura kong edad lungkot aking naramdaman
+At dahil bata pa ako walang alam na paraan
+Umalis ka ng bansa at nilayo ka nang tuluyan
+At ngayon sa 'ting tagpuan mag-isa na nagduduyan
+At ngayong malaki na 'ko ramdam ko na ang lahat
+Parang sa buhay ko'y may kulang at parang hindi sapat
+Tadhana ba ito o talagang nakaplano
+Sa langit nakatingala sa dadaan na eroplano
+At nagbabakasakaling doon ka nakasakay
+Dahil ako'y nandito lang at sa iyo'y nag-aantay
+Na darating ang panahon muli kitang masisilayan
+Doon sa ating tagpuan na ikaw ay nagduduyan
+Kislap ng 'yong mata'y 'di kayang limutin
+Sa 'ting tagpuan ay naghihintay pa rin
+Umukit ka sa puso ko at 'di na maalis
+Ang mga alaala nating dalawa na kay tamis
+Kay tagal kong tiniis
+Lumipas na ilang taon wala pa din akong balita
+'Di ko na rin matiyak kung tayo'y muling magkikita
+Lagi kong tinatanong kung pa'no ba at kung saan
+Kung pa'no ba at kung saan kita matatagpuan
+Ilang buwan ilang taon na tiniis ko ang lungkot
+Ilang buwan ilang taon naramdaman ko ang poot
+Ang makita kang muli na kay tagal kong hinangad
+Kung may pakpak lang ako baka ako na'y lumipad
+Patungo sa lugar kung sa'n ka man naroroon
+Kakalimutan ang ngayon babalikan ko ang noon
+Dahil hindi ako nagkaroon ng pagkakataon
+Dahil maaga tayong pinaglaruan ng panahon
+Hindi ko na alam kung sa'n pa ba 'ko lalagay
+Ang lagi kong tanong hanggang kailan mag-aantay
+Na darating ang panahon sabay nating babalikan
+Ang alaalang kay sayang hawak kamay na lang ba
+Kislap ng 'yong mata'y 'di kayang limutin
+Sa 'ting tagpuan ay naghihintay pa rin (naghihintay pa rin)
+Umukit ka sa puso ko at 'di na maalis ('di na maalis)
+Ang mga alaala nating dalawa na kay tamis
+Kay tagal kong tiniis
+Kislap ng 'yong mata'y 'di kayang limutin
+Sa 'ting tagpuan ay naghihintay pa rin
+Umukit ka sa puso ko at 'di na maalis
+Ang mga alaala nating dalawa na kay tamis
+Kay tagal kong tiniis	
